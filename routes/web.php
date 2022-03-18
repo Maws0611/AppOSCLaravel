@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/entreprise/index', [EntrepriseController::class, 'index'])->middleware(['auth'])->name('entreprise.index');
 Route::get('/entreprise/create', [EntrepriseController::class, 'create'])->middleware(['auth'])->name('entreprise.create');
-Route::get('/entreprise/store', [EntrepriseController::class, 'store'])->middleware(['auth'])->name('entreprise.store');
+Route::post('/entreprise/store', [EntrepriseController::class, 'store'])->middleware(['auth'])->name('entreprise.store');
 
 
 

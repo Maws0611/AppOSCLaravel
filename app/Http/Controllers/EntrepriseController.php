@@ -17,46 +17,25 @@ class EntrepriseController extends Controller
 
     public function create() {
         return view('entreprise.create', [
-            'quartiers' => quartiers::all()
+            // 'quartiers' => quartiers::all()
         ]);
     }
 
     public function store(Request $request) {
-        return view('entreprise.store');
-
+        
+        $contratFormel = $request->boolean('contratFormel');
+        $contratFormel = $request->old('contratFormel');
+        
+        $request->contratFormel = $contratFormel === 'true'? 1: 0;
+        $request->organigrammeClaire = $request->organigrammeClaire === 'true'? 1: 0;
+        $request->dispositifFormation = $request->dispositifFormation === 'true'? 1: 0;
+        $request->cotisationSocial = $request->cotisationSocial === 'true'? 1: 0;
+        
+        // dd($request->contratFormel, $request->organigrammeClaire, $request->dispositifFormation, $request->cotisationSocial);
+        // dd($request->dispositifFormation);
+        $entreprises = new entreprises;
         entreprises::create($request->all());
-        return redirect()->route('entreprise.index');
+        
+        return view('entreprise.store');
     }
-
-
-    public function store1(Request $request){
-        $request->validate([
-            'nomEntreprise' => ['required', 'string', 'max:255'],
-            'pageWeb' => ['required', 'string', 'pageWeb', 'max:255', 'unique:users'],
-            'dateCreation' => ['required', 'string', 'dateCreation', 'max:255', 'unique:users'],
-            'nombreEmploye' => ['required', 'string', 'nombreEmploye', 'max:255', 'unique:users'],
-            'contratFormel' => ['required', 'string', 'contratFormel', 'max:255', 'unique:users'],
-            'organigrammeClaire' => ['required', 'string', 'organigrammeClaire', 'max:255', 'unique:users'],
-            'dispositifFormation' => ['required', 'string', 'dispositifFormation', 'max:255', 'unique:users'],
-            'cotisationSocial' => ['required', 'string', 'cotisationSocial', 'max:255', 'unique:users'],
-            'registreJuridique' => ['required', 'string', 'registreJuridique', 'max:255', 'unique:users'],
-            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
-        $request = entreprises::create([
-            'nomEntreprise' => $request->nomEntreprise,
-            'pageWeb' => $request->pageWeb,
-            // 'password' => Hash::make($request->password),
-        ]);
-
-        // event(new Registered($user));
-
-        // Auth::login($user);
-
-        // return redirect(RouteServiceProvider::HOME);
     }
-
-    // $sieges = Entreprise::find(1)->sieges;
-    // foreach ($sieges as $siege){
-
-}
