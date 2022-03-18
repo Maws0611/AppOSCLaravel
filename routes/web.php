@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntrepriseController;
+use App\Http\Controllers\paysController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/entreprise/index', [EntrepriseController::class, 'index'])->middleware(['auth'])->name('entreprise.index');
-Route::get('/entreprise/create', [EntrepriseController::class, 'create'])->middleware(['auth'])->name('entreprise.create');
-Route::post('/entreprise/store', [EntrepriseController::class, 'store'])->middleware(['auth'])->name('entreprise.store');
+Route::get('/pays', [PaysController::class, 'index']);
+
+// Route::get('/entreprise/index', [EntrepriseController::class, 'index'])->middleware(['auth'])->name('entreprise.index');
+// Route::get('/entreprise/create', [EntrepriseController::class, 'create'])->middleware(['auth'])->name('entreprise.create');
+// Route::post('/entreprise/store', [EntrepriseController::class, 'store'])->middleware(['auth'])->name('entreprise.store');
 
 
 
