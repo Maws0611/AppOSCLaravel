@@ -25,7 +25,7 @@ Route::get('dashboard', [DiagramController::class, 'dashboard'])->name('dashboar
 Route::get('/pays', [PaysController::class, 'indexPays']);
 // Route::get('/region', [RegionController::class, 'indexRegion']);
 
-Route::post('/entreprise/index', [EntrepriseController::class, 'index'])->name('entreprise.index');
+Route::get('/entreprise/index', [EntrepriseController::class, 'index'])->name('entreprise.index');
 Route::get('/entreprise/create', [EntrepriseController::class, 'create'])->name('entreprise.create');
 Route::post('/entreprise/store', [EntrepriseController::class, 'store'])->name('entreprise.store');
 Route::get('/entreprise/{entreprise}',[EntrepriseController::class,'show'])->name('entreprise.show');

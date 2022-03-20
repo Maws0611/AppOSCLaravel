@@ -2,5 +2,6 @@
 @include('header')
 
 <body class="antialiased">
-salut
+<img src="/images/bienvenue.jpg" width="60%" >
+
 </body>

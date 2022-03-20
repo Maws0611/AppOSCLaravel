@@ -33,45 +33,39 @@
             }
         </style>
     </head>
-
-    <body class="antialiased fixed-top"> 
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">AppNousFemme</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ url('/dashboard') }}">Accueil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Entreprise</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('entreprise.create') }}">Ajouter entreprise</a>
-              </li>
-            </ul>
-          </div>
+  <body class="antialiased fixed-top"> 
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded">
+      <div class="container-fluid">
+        <a class="navbar-brand" >AppNousFemme</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('entreprise.create') }}">Ajouter entreprise</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('entreprise.index') }}">Entreprise</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-        @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Tableau de bord</a>
-                @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
+    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+      @if (Route::has('login'))
+          <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+              @auth
+                  <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Tableau de bord</a>
+              @else
+                  <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Créer un compte</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-      
-    </body>
+                  @if (Route::has('register'))
+                      <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Créer un compte</a>
+                  @endif
+              @endauth
+          </div>
+      @endif
+  </body>
 </html>
