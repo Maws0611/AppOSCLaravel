@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\paysController;
+use App\Http\Controllers\RegionController;
 
 
 /*
@@ -20,14 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pays', [PaysController::class, 'index']);
+Route::get('/pays', [PaysController::class, 'indexPays']);
+// Route::get('/region', [RegionController::class, 'indexRegion']);
 
-// Route::get('/entreprise/index', [EntrepriseController::class, 'index'])->middleware(['auth'])->name('entreprise.index');
-// Route::get('/entreprise/create', [EntrepriseController::class, 'create'])->middleware(['auth'])->name('entreprise.create');
-// Route::post('/entreprise/store', [EntrepriseController::class, 'store'])->middleware(['auth'])->name('entreprise.store');
-
-
-
+Route::post('/entreprise/index', [EntrepriseController::class, 'index'])->name('entreprise.index');
+Route::get('/entreprise/create', [EntrepriseController::class, 'create'])->name('entreprise.create');
+Route::post('/entreprise/store', [EntrepriseController::class, 'store'])->name('entreprise.store');
+Route::get('/entreprise/{entreprise}',[EntrepriseController::class,'show'])->name('entreprise.show');
+    
 
 Route::get('/dashboard', function () {
     return view('dashboard');

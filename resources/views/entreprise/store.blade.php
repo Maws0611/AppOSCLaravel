@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@include('header')
     <h1>Mes postes prefer</h1>
-</body>
-</html>
+
+    <div class="container" style="margin-top: 80px">
+        <h1>{{ $entreprise->nom }}</h1>
+          <h2>{{ $entreprise->localite->nom }}</h2>
+          <p> Siège Sociale : {{ $entreprise->siege }}</p>
+    </div>

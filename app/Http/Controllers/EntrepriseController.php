@@ -8,34 +8,70 @@ use App\Models\entreprises;
 
 class EntrepriseController extends Controller
 {
-    // public function index() {
+    public function index() {
     //     return view('entreprise.index', [
-    //         'entreprises' => entreprises::all()
+    //         'entreprises' => entreprises::with('localite')->get()
     //     ]);
-
     // }
 
     // public function create() {
-    //     return view('entreprise.create', [
-            // 'quartiers' => quartiers::all()
+    //     $quartiers = quartiers::all();
+    //     return view('entreprise.create',[
+    //         'quartiers' => $quartiers
     //     ]);
     // }
 
     // public function store(Request $request) {
+    //     $inputsData = $request->all();
+    //     $inputsData['contratFormel'] = $request->has('contratFormel') ? true : false;
+    //     $inputsData['organigrammeClaire'] = $request->has('organigrammeClaire') ? true : false;
+    //     $inputsData['dispositifFormation'] = $request->has('dispositifFormation') ? true : false;
+    //     $inputsData['cotisationSocial'] = $request->has('cotisationSocial') ? true : false;
         
-    //     $contratFormel = $request->boolean('contratFormel');
-    //     $contratFormel = $request->old('contratFormel');
         
-    //     $request->contratFormel = $contratFormel === 'true'? 1: 0;
-    //     $request->organigrammeClaire = $request->organigrammeClaire === 'true'? 1: 0;
-    //     $request->dispositifFormation = $request->dispositifFormation === 'true'? 1: 0;
-    //     $request->cotisationSocial = $request->cotisationSocial === 'true'? 1: 0;
-        
-        // dd($request->contratFormel, $request->organigrammeClaire, $request->dispositifFormation, $request->cotisationSocial);
-        // dd($request->dispositifFormation);
-    //     $entreprises = new entreprises;
-    //     entreprises::create($request->all());
-        
-    //     return view('entreprise.store');
-    // }
+
+    //     entreprises::create($inputsData);
+    //     return redirect()->route('entreprise.index');
     }
+    }
+
+
+
+
+
+    // public function __construct() {
+    //     $this->middleware(['auth'])->only('create');
+    // }
+
+
+
+    // public function index () {
+    //     return view('entreprises.index', [
+    //         'entreprises' => Entreprise::with('localite')->get()
+    //     ]);
+    // }
+
+    // public function create() {
+    //     $quartiers = Quartier::all();
+    //     return view('entreprises.create',[
+    //         'quartiers' => $quartiers
+    //     ]);
+    // }
+
+    // public function store(Request $request) {
+
+
+        //TODO: Refactoring cette partie de code
+    //     $inputsData = $request->all();
+    //     $inputsData['dispositifFormation'] = $request->has('dispositifFormation') ? true : false;
+    //     $inputsData['organigramme'] = $request->has('organigramme') ? true : false;
+    //     $inputsData['contrat'] = $request->has('contrat') ? true : false;
+
+    //     Entreprise::create($inputsData);
+    //     return redirect()->route('entreprises.index');
+    // }
+
+    // public function show(Entreprise  $entreprise){
+    //     return view('entreprises.show',['entreprise' => $entreprise]);
+
+    // }

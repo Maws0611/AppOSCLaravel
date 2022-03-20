@@ -34,7 +34,7 @@
         </style>
     </head>
 
-    <body class="antialiased"> 
+    <body class="antialiased fixed-top"> 
 
       <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container-fluid">
@@ -51,7 +51,7 @@
                 <a class="nav-link" href="#">Entreprise</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Adhérer</a>
+                <a class="nav-link" href="#">Ajouter entreprise</a>
               </li>
             </ul>
           </div>
@@ -62,15 +62,16 @@
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
-                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Tableau de bord</a>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Créer un compte</a>
                     @endif
                 @endauth
             </div>
         @endif
+      
     </body>
 </html>

@@ -9,4 +9,7 @@ class quartiers extends Model
 {
     use HasFactory;
     
+    public function siegesQuartiers(){
+        return $this->hasMany(sieges::class);
+    }
 }
