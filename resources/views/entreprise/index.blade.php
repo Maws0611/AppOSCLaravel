@@ -14,12 +14,14 @@
               <tbody>
                 @foreach ($entreprises as $entreprise)
                 <tr>
-                    <th scope="row">{{$entreprise->id}}</th>
-                    <td>{{$entreprise->nomEntreprise}}</td>
-                    <td>{{$entreprise->pays->regions->departements->communes->quartiers->sieges}}</td>
+                  <th scope="row">{{ $entreprise->id }}</th>
+                  <td>{{ $entreprise->nomEntreprise }}</td>
+                <td>{{ $entreprise->sieges->nomSiege }}</td>
+                    <td>{{ $entreprise->sieges->quartier->commune->departement->region->nomSiege }}</td>
                     <td>
-                        <a href="{{ route('entreprises.show',$entreprise) }}">plus d'informations</a>
+                        <a href="{{ route('entreprise.show',$entreprise) }}">plus d'informations</a>
                     </td>
+
                 </tr>
                 @endforeach
               </tbody>

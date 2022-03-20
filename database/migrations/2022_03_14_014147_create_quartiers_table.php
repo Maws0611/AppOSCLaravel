@@ -17,7 +17,7 @@ class CreateQuartiersTable extends Migration
             $table->id();
             $table->string('nomQuartier')->unique();
             $table->foreignId('communes_id')
-                  ->contrained()
+                  ->constrained()
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
             $table->timestamps();

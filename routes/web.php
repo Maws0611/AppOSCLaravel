@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\paysController;
-use App\Http\Controllers\RegionController;
+use App\Http\Controllers\DiagramController;
 
 
 /*
@@ -20,6 +20,7 @@ use App\Http\Controllers\RegionController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('dashboard', [DiagramController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/pays', [PaysController::class, 'indexPays']);
 // Route::get('/region', [RegionController::class, 'indexRegion']);

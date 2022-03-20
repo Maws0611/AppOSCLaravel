@@ -46,6 +46,12 @@
           <option value="SARL">SARL</option>
           <option value="GIE">GIE</option>
         </select>
+        <select class="form-select" name="siege_id" aria-label="list des régions">
+          <option selected>Sélectionner la localité</option>
+            @foreach ($sieges as $siege)
+              <option value="{{ $siege->id }}">{{ $siege->nomSiege }}</option>
+            @endforeach
+        </select>
         <br>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
       </form>
