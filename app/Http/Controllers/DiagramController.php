@@ -13,6 +13,6 @@ class DiagramController extends Controller
         $data = collect(); // Les données du diagramme
 
         // La vue "diagram"
-        return view("dashboard", compact('data'));
+        return view('dashboard', compact('data'));
     }
 }

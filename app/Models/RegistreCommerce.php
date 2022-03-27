@@ -9,6 +9,7 @@ class RegistreCommerce extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['prenomRepondant', 'nomRepondant', 'telephoneRepondant'];
     public function entreprise(){
 
         return $this->hasOne(Entreprise::class);

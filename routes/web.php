@@ -1,11 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DiagramController;
-use App\Http\Controllers\RegionController;
-use App\Http\Controllers\ElementController;
 use App\Http\Controllers\EntrepriseController;
-// use App\Http\Controllers\GameController;
+use App\Http\Controllers\DiagramController;
+use App\Http\Controllers\RegistreCommerceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard', [DiagramController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [DiagramController::class, 'diagram'])->name('dashboard');
 
 
 Route::resource('entreprises', EntrepriseController::class);
+Route::resource('registreCommerces', RegistreCommerceController::class);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

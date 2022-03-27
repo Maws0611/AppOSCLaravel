@@ -1,4 +1,6 @@
-@include('header')
+@extends('layouts.app')
+
+@section('content')
 
 @if ($errors->any())
   @foreach ($errors->all() as $error)
@@ -6,8 +8,10 @@
   @endforeach
 @endif
 
-<div class="container">
-  <div class="row">
+<div class="container py-12 pt-5">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+          <div class="p-6  border-b border-gray-200">
     <form method="post" action="{{ route('entreprises.store') }}">
        @csrf
         <div class="mb-3">
@@ -51,32 +55,36 @@
           <option value="SAS">SAS</option>
           <option value="SARL">SARL</option>
           <option value="GIE">GIE</option>
-        </select>
+        </select><br>
         {{-- localité --}}
         <select class="form-select" name="siege_id" aria-label="list des régions">
           <option selected>Sélectionner la localité</option>
             @foreach ($sieges as $siege)
               <option value="{{ $siege->id }}">{{ $siege->nomSiege }}</option>
             @endforeach
-        </select>
+        </select><br>
+
         <select class="form-select" name="commune_id" aria-label="list des régions">
           <option selected>Sélectionner la commune</option>
             @foreach ($communes as $commune)
               <option value="{{ $commune->id }}">{{ $commune->nomCommune }}</option>
             @endforeach
-        </select>
+        </select><br>
+
         <select class="form-select" name="departement_id" aria-label="list des régions">
           <option selected>Sélectionner le département</option>
             @foreach ($departements as $departement)
               <option value="{{ $departement->id }}">{{ $departement->nomDepartement }}</option>
             @endforeach
-        </select>
+        </select><br>
+
         <select class="form-select" name="region_id" aria-label="list des régions">
           <option selected>Sélectionner la région</option>
             @foreach ($regions as $region)
               <option value="{{ $region->id }}">{{ $region->nomRegion }}</option>
             @endforeach
-        </select>
+        </select><br>
+
         <select class="form-select" name="pays_id" aria-label="list des régions">
           <option selected>Sélectionner le Pays</option>
             @foreach ($pays as $pays)
@@ -87,4 +95,6 @@
         <button type="submit" class="btn btn-primary">Enregistrer</button>
       </form>
   </div>
+</div>
+</div>
 </div>
