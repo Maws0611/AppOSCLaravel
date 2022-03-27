@@ -43,29 +43,14 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('entreprise.create') }}">Ajouter entreprise</a>
+              <a class="nav-link" href="{{ route('entreprises.create') }}">Ajouter entreprise</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('entreprise.index') }}">Entreprise</a>
+              <a class="nav-link" href="{{ route('entreprises.index') }}">Entreprise</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-      @if (Route::has('login'))
-          <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-              @auth
-                  <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Tableau de bord</a>
-              @else
-                  <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
-
-                  @if (Route::has('register'))
-                      <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Créer un compte</a>
-                  @endif
-              @endauth
-          </div>
-      @endif
   </body>
 </html>

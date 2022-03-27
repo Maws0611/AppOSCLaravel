@@ -1,30 +1,28 @@
+
 @include('header')
+<h1>Je suis sur la pages des entreprise</h1>
 
-<div class="row">
-    <h1>La liste des entreprises</h1>
-    <div class="col">
-        <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                  <th scope="col">liste</th>
-                  <th scope="col">Nom entreprise</th>
-                  <th scope="col">Localité</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($entreprises as $entreprise)
-                <tr>
-                  <th scope="row">{{ $entreprise->id }}</th>
-                  <td>{{ $entreprise->nomEntreprise }}</td>
-                <td>{{ $entreprise->sieges->nomSiege }}</td>
-                    <td>{{ $entreprise->sieges->quartier->commune->departement->region->nomSiege }}</td>
-                    <td>
-                        <a href="{{ route('entreprise.show',$entreprise) }}">plus d'informations</a>
-                    </td>
-
-                </tr>
-                @endforeach
-              </tbody>
-        </table>
-    </div>
-</div>
+    <table>
+        <head>
+            <th>id</th>
+            <th>Nom entreprise</th>
+            <th>sieges</th>
+            <th>commune</th>
+            <th>region</th>
+            <th>pays</th>
+        </head>
+        <tbody>
+            @foreach ($entreprises as $entreprise)
+            <tr>
+                <td>{{$entreprise->id}}</td>
+                <td>{{$entreprise->nomEntreprise}}</td>
+                <td>{{$entreprise->Siege->nomSiege}}</td>
+                <td>{{$entreprise->Siege->Commune->nomCommune}}</td>
+                <td>{{$entreprise->Siege->Commune->Departement->nomDepartement}}</td>
+                <td>{{$entreprise->Siege->Commune->Departement->Region->nomRegion}}</td>
+                <td>{{$entreprise->Siege->Commune->Departement->Region->Pays->nomPays}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    

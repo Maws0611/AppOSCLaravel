@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EntrepriseController;
-use App\Http\Controllers\paysController;
 use App\Http\Controllers\DiagramController;
-
+use App\Http\Controllers\RegionController;
+use App\Http\Controllers\ElementController;
+use App\Http\Controllers\EntrepriseController;
+// use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,19 +21,8 @@ use App\Http\Controllers\DiagramController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('dashboard', [DiagramController::class, 'dashboard'])->name('dashboard');
 
-Route::get('/pays', [PaysController::class, 'indexPays']);
-// Route::get('/region', [RegionController::class, 'indexRegion']);
 
-Route::get('/entreprise/index', [EntrepriseController::class, 'index'])->name('entreprise.index');
-Route::get('/entreprise/create', [EntrepriseController::class, 'create'])->name('entreprise.create');
-Route::post('/entreprise/store', [EntrepriseController::class, 'store'])->name('entreprise.store');
-Route::get('/entreprise/{entreprise}',[EntrepriseController::class,'show'])->name('entreprise.show');
-    
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+Route::resource('entreprises', EntrepriseController::class);

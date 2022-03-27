@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pays extends Model
+class Pays extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nomPays', 'indication'];
+    public function regions(){
+        return $this->hasMany(Region::class);
+    }
 }

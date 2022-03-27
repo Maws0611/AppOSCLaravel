@@ -1,8 +1,14 @@
 @include('header')
 
+@if ($errors->any())
+  @foreach ($errors->all() as $error)
+  <div class="alert alert-danger">{{$error}}</div>
+  @endforeach
+@endif
+
 <div class="container">
   <div class="row">
-    <form method="post" action="{{ route('entreprise.index') }}">
+    <form method="post" action="{{ route('entreprises.store') }}">
        @csrf
         <div class="mb-3">
           <label for="nomEntreprise" class="form-label">Nom de l'entreprise</label>
@@ -46,10 +52,35 @@
           <option value="SARL">SARL</option>
           <option value="GIE">GIE</option>
         </select>
+        {{-- localité --}}
         <select class="form-select" name="siege_id" aria-label="list des régions">
           <option selected>Sélectionner la localité</option>
             @foreach ($sieges as $siege)
               <option value="{{ $siege->id }}">{{ $siege->nomSiege }}</option>
+            @endforeach
+        </select>
+        <select class="form-select" name="commune_id" aria-label="list des régions">
+          <option selected>Sélectionner la commune</option>
+            @foreach ($communes as $commune)
+              <option value="{{ $commune->id }}">{{ $commune->nomCommune }}</option>
+            @endforeach
+        </select>
+        <select class="form-select" name="departement_id" aria-label="list des régions">
+          <option selected>Sélectionner le département</option>
+            @foreach ($departements as $departement)
+              <option value="{{ $departement->id }}">{{ $departement->nomDepartement }}</option>
+            @endforeach
+        </select>
+        <select class="form-select" name="region_id" aria-label="list des régions">
+          <option selected>Sélectionner la région</option>
+            @foreach ($regions as $region)
+              <option value="{{ $region->id }}">{{ $region->nomRegion }}</option>
+            @endforeach
+        </select>
+        <select class="form-select" name="pays_id" aria-label="list des régions">
+          <option selected>Sélectionner le Pays</option>
+            @foreach ($pays as $pays)
+              <option value="{{ $pays->id }}">{{ $pays->nomPays }}</option>
             @endforeach
         </select>
         <br>
